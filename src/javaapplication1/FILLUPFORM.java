@@ -8,6 +8,8 @@ package javaapplication1;
 
 
 import dbConnector.dbConnector;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +24,8 @@ public class FILLUPFORM extends javax.swing.JFrame {
     public FILLUPFORM() {
         initComponents();
     }
-  
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,18 +47,20 @@ public class FILLUPFORM extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         name = new javax.swing.JLabel();
         age = new javax.swing.JLabel();
-        address = new javax.swing.JLabel();
+        usern = new javax.swing.JLabel();
         dob = new javax.swing.JLabel();
         phone = new javax.swing.JLabel();
         stats = new javax.swing.JLabel();
-        pwd = new javax.swing.JTextField();
+        agee = new javax.swing.JTextField();
         fname = new javax.swing.JTextField();
         lname = new javax.swing.JTextField();
         username = new javax.swing.JTextField();
         password = new javax.swing.JTextField();
-        ads = new javax.swing.JTextField();
+        adds = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         PWD = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         jLabel4.setText("AGE:");
 
@@ -95,7 +100,7 @@ public class FILLUPFORM extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel41.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
+        jPanel41.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
 
         name.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         name.setText("FIRSTNAME:");
@@ -105,9 +110,9 @@ public class FILLUPFORM extends javax.swing.JFrame {
         age.setText("LASTNAME:");
         jPanel41.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        address.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        address.setText("USERNAME:");
-        jPanel41.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 84, -1, -1));
+        usern.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        usern.setText("USERNAME:");
+        jPanel41.add(usern, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 84, -1, -1));
 
         dob.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         dob.setText("PASSWORD:");
@@ -121,12 +126,12 @@ public class FILLUPFORM extends javax.swing.JFrame {
         stats.setText("AGE:");
         jPanel41.add(stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
-        pwd.addActionListener(new java.awt.event.ActionListener() {
+        agee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwdActionPerformed(evt);
+                ageeActionPerformed(evt);
             }
         });
-        jPanel41.add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 170, -1));
+        jPanel41.add(agee, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 170, -1));
 
         fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,17 +161,28 @@ public class FILLUPFORM extends javax.swing.JFrame {
         });
         jPanel41.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 170, -1));
 
-        ads.addActionListener(new java.awt.event.ActionListener() {
+        adds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adsActionPerformed(evt);
+                addsActionPerformed(evt);
             }
         });
-        jPanel41.add(ads, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 170, -1));
+        jPanel41.add(adds, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("PWD STATUS:");
         jPanel41.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
         jPanel41.add(PWD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 180, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Resident" }));
+        jPanel41.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 130, -1));
+
+        jButton1.setText("Admin");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel41.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 70, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -197,9 +213,9 @@ public class FILLUPFORM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void adsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adsActionPerformed
+    private void addsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_adsActionPerformed
+    }//GEN-LAST:event_addsActionPerformed
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
@@ -217,13 +233,13 @@ public class FILLUPFORM extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fnameActionPerformed
 
-    private void pwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdActionPerformed
+    private void ageeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ageeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pwdActionPerformed
+    }//GEN-LAST:event_ageeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(fname.getText().isEmpty()|| lname.getText().isEmpty()
-            || username.getText().isEmpty()|| password.getText().isEmpty()|| ads.getText().isEmpty()|| age.getText().isEmpty()
+            || username.getText().isEmpty()|| password.getText().isEmpty()|| adds.getText().isEmpty()|| agee.getText().isEmpty()
             || PWD.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "All fields are required!");
         }else if(password.getText().length() < 8){
@@ -236,8 +252,8 @@ public class FILLUPFORM extends javax.swing.JFrame {
 
             if (dbc.insertData("INSERT INTO user(r_fname, r_lname, r_username, r_password, r_address, r_age, r_pwdstatus, status) "
                 + "VALUES('" + fname.getText() + "', '" + lname.getText() + "', '"
-                + username.getText() + "', '" + password.getText() + "', '" + age.getText() + "','"
-                + ads.getText() + "','" + PWD.getText() + "', 'PENDING')")) {
+                + username.getText() + "', '" + password.getText() + "', '" + agee.getText() + "','"
+                + adds.getText() + "','" + PWD.getText() + "', 'PENDING')")) {
             JOptionPane.showMessageDialog(null, "Register Successfully");
 
             JOptionPane.showMessageDialog(null, "Inserted Successfully!");
@@ -250,6 +266,12 @@ public class FILLUPFORM extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Admin ad = new Admin();
+       ad.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
          
 
     /**
@@ -289,12 +311,14 @@ public class FILLUPFORM extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField PWD;
-    private javax.swing.JLabel address;
-    private javax.swing.JTextField ads;
+    private javax.swing.JTextField adds;
     private javax.swing.JLabel age;
+    private javax.swing.JTextField agee;
     private javax.swing.JLabel dob;
     private javax.swing.JTextField fname;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -308,8 +332,8 @@ public class FILLUPFORM extends javax.swing.JFrame {
     private javax.swing.JLabel name;
     private javax.swing.JTextField password;
     private javax.swing.JLabel phone;
-    private javax.swing.JTextField pwd;
     private javax.swing.JLabel stats;
+    private javax.swing.JLabel usern;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 

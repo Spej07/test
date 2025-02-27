@@ -5,6 +5,11 @@
  */
 package javaapplication1;
 
+import dbConnector.dbConnector;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Gwapo ko
@@ -16,6 +21,19 @@ public class Records extends javax.swing.JFrame {
      */
     public Records() {
         initComponents();
+        
+    }
+    public void displayData(){
+        try{
+            dbConnector dbc = new dbConnector();
+            ResultSet rs = dbc.getData("SELECT * FROM user");
+            user.setModel(DbUtils.resultSetToTableModel(rs));
+             rs.close();
+        }catch(SQLException ex){
+            System.out.println("Errors: "+ex.getMessage());
+
+        }
+
     }
 
     /**
@@ -39,7 +57,7 @@ public class Records extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        user = new javax.swing.JTable();
 
         jButton2.setText("jButton2");
 
@@ -97,7 +115,7 @@ public class Records extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 510, 60));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        user.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -108,7 +126,7 @@ public class Records extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(user);
 
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -200,6 +218,6 @@ public class Records extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable user;
     // End of variables declaration//GEN-END:variables
 }

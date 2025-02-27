@@ -35,8 +35,8 @@ public class Residentlogin extends javax.swing.JFrame {
         ADUSERT = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jPasswordField2 = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,8 +71,7 @@ public class Residentlogin extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText(" PASS:");
         jDesktopPane1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 163, -1, -1));
-        jDesktopPane1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 130, 210, 22));
-        jDesktopPane1.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 166, 214, -1));
+        jDesktopPane1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 130, 210, 30));
 
         jButton2.setText("CANCEL");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -81,10 +80,12 @@ public class Residentlogin extends javax.swing.JFrame {
             }
         });
         jDesktopPane1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        jDesktopPane1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 220, -1));
 
         getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 350, 300));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -143,7 +144,7 @@ public class Residentlogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
