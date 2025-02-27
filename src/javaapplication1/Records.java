@@ -21,7 +21,7 @@ public class Records extends javax.swing.JFrame {
      */
     public Records() {
         initComponents();
-        
+        displayData();
     }
     public void displayData(){
         try{

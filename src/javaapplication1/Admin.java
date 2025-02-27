@@ -67,7 +67,7 @@ public class Admin extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 121, 300));
 
-        jDesktopPane1.setBackground(new java.awt.Color(255, 204, 204));
+        jDesktopPane1.setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setText("ADMINISTRATIVE LOGIN");
