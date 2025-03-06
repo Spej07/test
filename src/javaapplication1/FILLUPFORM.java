@@ -59,8 +59,7 @@ public class FILLUPFORM extends javax.swing.JFrame {
         adds = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         PWD = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        type = new javax.swing.JComboBox<>();
 
         jLabel4.setText("AGE:");
 
@@ -173,16 +172,8 @@ public class FILLUPFORM extends javax.swing.JFrame {
         jPanel41.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
         jPanel41.add(PWD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 180, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Resident" }));
-        jPanel41.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 130, -1));
-
-        jButton1.setText("Admin");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel41.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 70, -1));
+        type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Resident" }));
+        jPanel41.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 130, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,10 +241,10 @@ public class FILLUPFORM extends javax.swing.JFrame {
 
             dbConnector dbc = new dbConnector();
 
-            if (dbc.insertData("INSERT INTO user(r_fname, r_lname, r_username, r_password, r_address, r_age, r_pwdstatus, status) "
+            if (dbc.insertData("INSERT INTO user(r_fname, r_lname, r_username, r_password, r_address, r_age, r_pwdstatus, type, status) "
                 + "VALUES('" + fname.getText() + "', '" + lname.getText() + "', '"
                 + username.getText() + "', '" + password.getText() + "', '" + agee.getText() + "','"
-                + adds.getText() + "','" + PWD.getText() + "', 'PENDING')")) {
+                + adds.getText() + "','" + PWD.getText() + "','" + type.getSelectedItem() + "', 'PENDING')")) {
             JOptionPane.showMessageDialog(null, "Register Successfully");
 
             JOptionPane.showMessageDialog(null, "Inserted Successfully!");
@@ -266,12 +257,6 @@ public class FILLUPFORM extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Admin ad = new Admin();
-       ad.setVisible(true);
-       dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
          
 
     /**
@@ -316,9 +301,7 @@ public class FILLUPFORM extends javax.swing.JFrame {
     private javax.swing.JTextField agee;
     private javax.swing.JLabel dob;
     private javax.swing.JTextField fname;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -333,6 +316,7 @@ public class FILLUPFORM extends javax.swing.JFrame {
     private javax.swing.JTextField password;
     private javax.swing.JLabel phone;
     private javax.swing.JLabel stats;
+    private javax.swing.JComboBox<String> type;
     private javax.swing.JLabel usern;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
