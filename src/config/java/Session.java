@@ -12,13 +12,13 @@ package config.java;
 public class Session {
     
     private static Session instance;
-    private int uid;
-    private String fname;
-    private String lname;
-    private String email;
-    private String username;
-    private String type;
-    private String status;
+    private int rid;
+    private String rfn;
+    private String rln;
+    private String age;
+    private String usn;
+    private String r_type;
+    private String r_status;
     
     private Session(){
        //Private cons.prevents instance 
@@ -35,60 +35,60 @@ public class Session {
         return instance == null;
     }
 
-        public int getUid() {
-        return uid;
+        public int getRid() {
+        return rid;
     }
 
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setRid(int rid) {
+        this.rid = rid;
     }
     
     public String getFname() {
-        return fname;
+        return rfn;
     }
 
-    public void setFname(String fname) {
-        this.fname = fname;
+    public void setFname(String rfn) {
+        this.rfn = rfn;
     }
 
     public String getLname() {
-        return lname;
+        return rln;
     }
 
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setLname(String rln) {
+        this.rln = rln;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAge() {
+        return age;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getUsername() {
-        return username;
+        return usn;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.usn = username;
     }
 
     public String getType() {
-        return type;
+        return r_type;
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.r_type = type;
     }
 
     public String getStatus() {
-        return status;
+        return r_status;
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        this.r_status = status;
     }
 
     

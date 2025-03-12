@@ -49,7 +49,7 @@ public class login extends javax.swing.JFrame {
                 status = resultSet.getString("r_status");   
                 type = resultSet.getString("r_type");
                 Session sess = Session.getInstance();
-                sess.setUid(resultSet.getInt("r_id"));
+                sess.setRid(resultSet.getInt("r_id"));
                 sess.setFname(resultSet.getString("r_fname"));
                 sess.setLname(resultSet.getString("r_lname"));
                 sess.setUsername(resultSet.getString("r_username"));
@@ -144,7 +144,7 @@ public class login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(51, 255, 204));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/userLogs/clinic1-removebg-preview.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clinic1-removebg-preview.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

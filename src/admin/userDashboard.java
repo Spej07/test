@@ -37,7 +37,7 @@ public class userDashboard extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         acc_id = new javax.swing.JLabel();
@@ -62,15 +62,13 @@ public class userDashboard extends javax.swing.JFrame {
         jLabel1.setText("USERS TABLE FORM");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("BACK");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+        jButton1.setText("BACK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(565, 22, 62, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 637, -1));
 
@@ -78,7 +76,7 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/admin/icons8-user-96.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-user-96.png"))); // NOI18N
         jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 120, 100));
 
@@ -121,7 +119,7 @@ public class userDashboard extends javax.swing.JFrame {
             .addGroup(p_addLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         p_addLayout.setVerticalGroup(
             p_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,12 +203,6 @@ public class userDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        adminDashboard ds = new adminDashboard();
-        ds.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel2MouseClicked
-
     private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
         createUserForm crf = new createUserForm();
         crf.setVisible(true);
@@ -242,20 +234,20 @@ public class userDashboard extends javax.swing.JFrame {
                     crf.rid.setText(""+rs.getInt("r_id"));
                     crf.rfn.setText(""+rs.getString("r_fname"));
                     crf.rln.setText(""+rs.getString("r_lname"));
-                    crf.age.setText(""+rs.getString("r_username"));
-                    crf.usn.setText(""+rs.getString("u_password"));
-                    crf.ps.setText(""+rs.getString("u_age"));
-                    crf.ut.setSelectedItem(""+rs.getString("u_type"));
-                    crf.us.setSelectedItem(""+rs.getString("u_status"));
-                    crf.image.setIcon(crf.ResizeImage(rs.getString("u_image"),null, crf.image));
-                    crf.oldpath = rs.getString("u_image");
-                    crf.path = rs.getString("u_image");
-                    crf.destination = rs.getString("u_image");
+                    crf.adds.setText(""+rs.getString("r_username"));
+                    crf.usn.setText(""+rs.getString("r_password"));
+                    crf.ps.setText(""+rs.getString("r_age"));
+                    crf.ut.setSelectedItem(""+rs.getString("r_type"));
+                    crf.us.setSelectedItem(""+rs.getString("r_status"));
+                    crf.image.setIcon(crf.ResizeImage(rs.getString("r_image"),null, crf.image));
+                    crf.oldpath = rs.getString("r_image");
+                    crf.path = rs.getString("r_image");
+                    crf.destination = rs.getString("r_image");
                     crf.add.setEnabled(false);
                     crf.update.setEnabled(true);
                     crf.setVisible(true);
 
-                    if(rs.getString("u_image").isEmpty()){
+                    if(rs.getString("r_image").isEmpty()){
                         crf.select.setEnabled(true);
                         crf.remove.setEnabled(false);
                     }else{
@@ -281,6 +273,12 @@ public class userDashboard extends javax.swing.JFrame {
         Color navcolor = null;
         p_add1.setBackground(navcolor);
     }//GEN-LAST:event_p_add1MouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        adminDashboard adb = new adminDashboard();
+        adb.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,9 +319,9 @@ public class userDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel aa;
     private javax.swing.JLabel acc_id;
     private javax.swing.JLabel acc_name1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

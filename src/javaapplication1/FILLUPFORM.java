@@ -107,8 +107,8 @@ public class FILLUPFORM extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication1/icons8-health-100 (1).png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-health-100.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 80));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
