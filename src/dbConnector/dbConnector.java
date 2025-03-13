@@ -27,14 +27,14 @@ public class dbConnector {
                     System.out.println("Can't connect to database: "+ex.getMessage());
             }
     }
-    //Function to retrieve data
+   
         public ResultSet getData(String sql) throws SQLException{
             Statement stmt = connect.createStatement();
             ResultSet rst = stmt.executeQuery(sql);
             return rst;
         }
     
-        //Function to save data
+       
         public boolean insertData(String sql){
             try{
                 PreparedStatement pst = connect.prepareStatement(sql);
@@ -51,6 +51,8 @@ public class dbConnector {
     public void updateData(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
 
     
 

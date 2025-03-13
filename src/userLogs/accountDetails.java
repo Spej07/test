@@ -44,7 +44,7 @@ public class accountDetails extends javax.swing.JFrame {
         ln = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        age = new javax.swing.JTextField();
+        adds = new javax.swing.JTextField();
         un = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         ut = new javax.swing.JComboBox<>();
@@ -145,9 +145,9 @@ public class accountDetails extends javax.swing.JFrame {
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 75, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("Age:");
+        jLabel8.setText("Address:");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 144, -1, -1));
-        jPanel3.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 167, 226, 30));
+        jPanel3.add(adds, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 167, 226, 30));
         jPanel3.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 236, 226, 20));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -198,7 +198,7 @@ public class accountDetails extends javax.swing.JFrame {
         iddisplay.setText("USER ID: "+sess.getRid());
         fn.setText(""+sess.getFname());    
         ln.setText(""+sess.getLname());
-        age.setText(""+sess.getAge());
+        adds.setText(""+sess.getAddress());
         un.setText(""+sess.getUsername());
     }//GEN-LAST:event_formWindowActivated
 
@@ -266,7 +266,7 @@ public class accountDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField age;
+    private javax.swing.JTextField adds;
     private javax.swing.JTextField fn;
     private javax.swing.JLabel iddisplay;
     private javax.swing.JButton jButton1;

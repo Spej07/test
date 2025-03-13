@@ -15,7 +15,7 @@ public class Session {
     private int rid;
     private String rfn;
     private String rln;
-    private String age;
+    private String adds;
     private String usn;
     private String r_type;
     private String r_status;
@@ -59,12 +59,12 @@ public class Session {
         this.rln = rln;
     }
 
-    public String getAge() {
-        return age;
+    public String getAddress() {
+        return adds;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    public void setAge(String Address) {
+        this.adds = adds;
     }
 
     public String getUsername() {

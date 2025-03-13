@@ -6,8 +6,8 @@
 package admin;
 
 import java.awt.Color;
-import javaapplication1.Records;
 import javax.swing.JOptionPane;
+import userLogs.createUserForm;
 import userLogs.login;
 import userLogs.usersdashboard;
 
@@ -229,15 +229,15 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-         Records rd = new Records();
+      Records rd = new Records();
       rd.setVisible(true);
       dispose();
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        usersdashboard ads = new  usersdashboard();
-        ads.setVisible(true);
-        dispose();
+       createUserForm cuf = new createUserForm();
+       cuf.setVisible(true);
+       dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
@@ -278,19 +278,15 @@ public class adminDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc_lname;
     private javax.swing.JLabel acc_name;
-    private javax.swing.JPanel c_name;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
