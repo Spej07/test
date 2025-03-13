@@ -5,6 +5,7 @@
  */
 package userLogs;
 
+import admin.userDashboard;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -114,6 +115,11 @@ public class usersdashboard extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 160, 160));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-checkup-60.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 94, 80));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -135,6 +141,12 @@ public class usersdashboard extends javax.swing.JFrame {
         ads.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+       userDashboard aDb = new userDashboard();
+       aDb.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments

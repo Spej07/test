@@ -477,7 +477,7 @@ public class createUserForm extends javax.swing.JFrame {
         }else{
 
             dbConnector dbc = new dbConnector();
-            if(dbc.insertData("INSERT INTO user (r_fname, r_lname, r_username, r_password, r_address, r_type, r_status, r_image) "
+            if(dbc.insertData("INSERT INTO user (r_fname, r_lname, r_username, r_password, r_address, r_type, r_status) "
                 + "VALUES ('"+rfn.getText()+"','"+rln.getText()+"','"+adds.getText()+"','"+usn.getText()+"','"+ps.getText()+"','"+ut.getSelectedItem()+"','"+us.getSelectedItem()+"','"+destination+"')"))
         {
             try{
@@ -514,7 +514,7 @@ public class createUserForm extends javax.swing.JFrame {
             dbConnector dbc = new dbConnector();
             dbc.updateData("UPDATE user SET r_fname = '"+rfn.getText()+"', r_lname = '"+rln.getText()+"', "
                 + "r_address = '"+adds.getText()+"', r_username = '"+usn.getText()+"', r_password = '"+ps.getText()+"', "
-                + "r_type = '"+ut.getSelectedItem()+"', r_status = '"+us.getSelectedItem()+"', r_image ='"+destination+"' WHERE r_id = '"+rid.getText()+"'");
+                + "r_type = '"+ut.getSelectedItem()+"', r_status = '"+us.getSelectedItem()+"' WHERE r_id = '"+rid.getText()+"'");
 
             if(destination.isEmpty()){
                 File existingFile = new File(oldpath);

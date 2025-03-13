@@ -6,7 +6,6 @@
 package userLogs;
 
 import admin.adminDashboard;
-import admin.userDashboard;
 import config.java.Session;
 import config.java.passwordHasher;
 import dbConnector.dbConnector;
@@ -181,8 +180,8 @@ public class login extends javax.swing.JFrame {
                     this.dispose();
                 }else if(type.equals("Resident")){
                     JOptionPane.showMessageDialog(null, "Login Success!");
-                    userDashboard usd = new userDashboard();
-                    usd.setVisible(true);
+                    usersdashboard udb = new usersdashboard();
+                    udb.setVisible(true);
                     this.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "No account type found, Contact the Admin!");

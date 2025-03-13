@@ -270,7 +270,7 @@ public class FILLUPFORM extends javax.swing.JFrame {
         String pass = passwordHasher.hashPassword(password.getText());
         String imagePath = "uploads/" + usname.getText() + ".jpg"; 
         
-        if(dbc.insertData("INSERT INTO user (r_fname, r_lname, r_username, r_password, r_age,r_address, r_pwdstatus , r_type, r_status) "
+        if(dbc.insertData("INSERT INTO user (r_fname, r_lname, r_username, r_password, r_age,r_address, r_pwdstatus , r_type,r_status) "
                 + "VALUES('" + fname.getText() + "', '" + lname.getText() + "', '"
                 + usname.getText() + "', '" +pass+ "', '" + agee.getText() + "','"
                 + adds.getText() + "','" + PWD.getText() + "','" + type.getSelectedItem() + "', 'PENDING')")) {
