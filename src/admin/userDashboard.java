@@ -20,7 +20,7 @@ import userLogs.createUserForm;
  *
  * @author Bentastic
  */
-public class userDashboard extends javax.swing.JFrame {
+public final class userDashboard extends javax.swing.JFrame {
 
     /**
      * Creates new form adminDashboard
@@ -36,9 +36,9 @@ public class userDashboard extends javax.swing.JFrame {
     public void displayData(){
         try{
             dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT r_id, r_fname, r_lname, r_address, r_status FROM user");
-            usersTable.setModel(DbUtils.resultSetToTableModel(rs));
-             rs.close();
+            try (ResultSet rs = dbc.getData("SELECT r_id, r_fname, r_lname, r_address, r_status FROM user")) {
+                usersTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
         
@@ -230,7 +230,7 @@ public class userDashboard extends javax.swing.JFrame {
                 .addComponent(p_add, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p_add1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(aa, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(acc_id, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -318,24 +318,13 @@ public class userDashboard extends javax.swing.JFrame {
                 crf.rln.setText(""+rs.getString("r_lname"));
                 crf.adds.setText(""+rs.getString("r_addreess"));
                 crf.usn.setText(""+rs.getString("r_username"));
-                crf.ps.setText(""+rs.getString("r_password"));  
-                crf.ut.setSelectedItem(""+rs.getString("r_type"));
-                crf.us.setSelectedItem(""+rs.getString("r_status"));
-                crf.image.setIcon(crf.ResizeImage(rs.getString("r_image"),null, crf.image));
-                crf.oldpath = rs.getString("r_image");
-                crf.path = rs.getString("r_image");
-                crf.destination = rs.getString("r_image");
+                crf.pwd.setText(""+rs.getString("r_password"));  
+                crf.ut.setSelectedItem(""+rs.getString("r_type"));        
                 crf.add.setEnabled(false);
                 crf.update.setEnabled(true);
                 crf.setVisible(true);
                 
-                if(rs.getString("r_image").isEmpty()){
-                    crf.select.setEnabled(true);
-                    crf.remove.setEnabled(false);
-                }else{
-                    crf.select.setEnabled(false);
-                    crf.remove.setEnabled(true);                   
-                }
+                
                 
                 this.dispose();
             }

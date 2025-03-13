@@ -63,8 +63,8 @@ public class Session {
         return adds;
     }
 
-    public void setAge(String Address) {
-        this.adds = adds;
+    public void setAddress(String Address) {
+        this.adds = Address;
     }
 
     public String getUsername() {

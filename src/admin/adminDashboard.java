@@ -219,6 +219,7 @@ public class adminDashboard extends javax.swing.JFrame {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, 230));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -229,9 +230,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-      Records rd = new Records();
-      rd.setVisible(true);
-      dispose();
+     
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked

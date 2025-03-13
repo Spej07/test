@@ -40,86 +40,7 @@ public class createUserForm extends javax.swing.JFrame {
     public createUserForm() {
         initComponents();
     }
-   public String destination = ""; 
-    File selectedFile;
-    public String oldpath;
-    public String path;
-    
-    public int FileExistenceChecker(String path){
-        File file = new File(path);
-        String fileName = file.getName();
-        
-        Path filePath = Paths.get("src/usersimages", fileName);
-        boolean fileExists = Files.exists(filePath);
-        
-        if (fileExists) {
-            return 1;
-        } else {
-            return 0;
-        }
-    
-    }
-    
-    public static int getHeightFromWidth(String imagePath, int desiredWidth) {
-        try {
-            // Read the image file
-            File imageFile = new File(imagePath);
-            BufferedImage image = ImageIO.read(imageFile);
-            
-            // Get the original width and height of the image
-            int originalWidth = image.getWidth();
-            int originalHeight = image.getHeight();
-            
-            // Calculate the new height based on the desired width and the aspect ratio
-            int newHeight = (int) ((double) desiredWidth / originalWidth * originalHeight);
-            
-            return newHeight;
-        } catch (IOException ex) {
-            System.out.println("No image found!");
-        }
-        
-        return -1;
-    }    
-    
-    
-    public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
-        ImageIcon MyImage = null;
-            if(ImagePath !=null){
-                MyImage = new ImageIcon(ImagePath);
-            }else{
-                MyImage = new ImageIcon(pic);
-            }
-
-        int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
-
-        Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(newImg);
-        return image;
-    }
-    
-        public void imageUpdater(String existingFilePath, String newFilePath){
-        File existingFile = new File(existingFilePath);
-        if (existingFile.exists()) {
-            String parentDirectory = existingFile.getParent();
-            File newFile = new File(newFilePath);
-            String newFileName = newFile.getName();
-            File updatedFile = new File(parentDirectory, newFileName);
-            existingFile.delete();
-            try {
-                Files.copy(newFile.toPath(), updatedFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                System.out.println("Image updated successfully.");
-            } catch (IOException e) {
-                System.out.println("Error occurred while updating the image: "+e);
-            }
-        } else {
-            try{
-                Files.copy(selectedFile.toPath(), new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
-            }catch(IOException e){
-                System.out.println("Error on update!");
-            }
-        }
-   }
+  
     
     public boolean duplicateCheck(){
         
@@ -187,11 +108,9 @@ public class createUserForm extends javax.swing.JFrame {
         rid = new javax.swing.JTextField();
         rln = new javax.swing.JTextField();
         usn = new javax.swing.JTextField();
-        ps = new javax.swing.JTextField();
+        pwd = new javax.swing.JTextField();
         ut = new javax.swing.JComboBox<>();
         add = new javax.swing.JButton();
-        us = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
         update = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         clear = new javax.swing.JButton();
@@ -199,12 +118,14 @@ public class createUserForm extends javax.swing.JFrame {
         refresh = new javax.swing.JButton();
         rfn = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        select = new javax.swing.JButton();
-        remove = new javax.swing.JButton();
-        r_id = new javax.swing.JPanel();
-        image = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         adds = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        status = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        age = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        ps = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -215,31 +136,37 @@ public class createUserForm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGap(0, 510, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 569, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, -1));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("User ID:");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Last Name:");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 114, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("UserName:");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Password:");
+        jLabel5.setText("PWD STATUS:");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("Account Type:");
+        jLabel6.setText("User Type:");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
 
         rid.setEnabled(false);
         rid.addActionListener(new java.awt.event.ActionListener() {
@@ -247,8 +174,13 @@ public class createUserForm extends javax.swing.JFrame {
                 ridActionPerformed(evt);
             }
         });
+        jPanel3.add(rid, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 52, 139, -1));
+        jPanel3.add(rln, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 114, 147, -1));
+        jPanel3.add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 138, -1));
+        jPanel3.add(pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 138, -1));
 
         ut.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
+        jPanel3.add(ut, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 120, -1));
 
         add.setBackground(new java.awt.Color(0, 102, 102));
         add.setText("ADD");
@@ -257,16 +189,7 @@ public class createUserForm extends javax.swing.JFrame {
                 addActionPerformed(evt);
             }
         });
-
-        us.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Pending" }));
-        us.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("User Status:");
+        jPanel3.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 66, -1));
 
         update.setBackground(new java.awt.Color(0, 102, 102));
         update.setText("UPDATE");
@@ -276,6 +199,7 @@ public class createUserForm extends javax.swing.JFrame {
                 updateActionPerformed(evt);
             }
         });
+        jPanel3.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 11, -1, -1));
 
         delete.setBackground(new java.awt.Color(0, 102, 102));
         delete.setText("DELETE");
@@ -284,6 +208,7 @@ public class createUserForm extends javax.swing.JFrame {
                 deleteActionPerformed(evt);
             }
         });
+        jPanel3.add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 11, 89, -1));
 
         clear.setBackground(new java.awt.Color(0, 102, 102));
         clear.setText("CLEAR");
@@ -292,6 +217,7 @@ public class createUserForm extends javax.swing.JFrame {
                 clearActionPerformed(evt);
             }
         });
+        jPanel3.add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(278, 11, -1, -1));
 
         cancel.setBackground(new java.awt.Color(0, 102, 102));
         cancel.setText("CANCEL");
@@ -300,6 +226,7 @@ public class createUserForm extends javax.swing.JFrame {
                 cancelActionPerformed(evt);
             }
         });
+        jPanel3.add(cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 11, -1, -1));
 
         refresh.setBackground(new java.awt.Color(0, 102, 102));
         refresh.setText("REFRESH");
@@ -308,157 +235,39 @@ public class createUserForm extends javax.swing.JFrame {
                 refreshActionPerformed(evt);
             }
         });
+        jPanel3.add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 11, -1, -1));
+        jPanel3.add(rfn, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 83, 138, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("First Name:");
-
-        select.setBackground(new java.awt.Color(0, 102, 102));
-        select.setText("SELECT");
-        select.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        select.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectActionPerformed(evt);
-            }
-        });
-
-        remove.setBackground(new java.awt.Color(0, 102, 102));
-        remove.setText("REMOVE");
-        remove.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        remove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removeActionPerformed(evt);
-            }
-        });
-
-        r_id.setLayout(null);
-
-        image.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        r_id.add(image);
-        image.setBounds(10, 10, 210, 190);
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 83, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Address:");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 148, -1, -1));
+        jPanel3.add(adds, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 148, 147, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ps, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(usn, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(33, 33, 33)
-                        .addComponent(us, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(ut, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(46, 46, 46)
-                            .addComponent(rid))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(update)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(delete, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addGap(25, 25, 25)
-                            .addComponent(rfn)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel9))
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(adds)
-                            .addComponent(rln))))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(clear)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(refresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(r_id, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(select, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(remove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(66, 66, 66))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add)
-                    .addComponent(update)
-                    .addComponent(delete)
-                    .addComponent(clear)
-                    .addComponent(cancel)
-                    .addComponent(refresh))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(r_id, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rfn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rln, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel9))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(adds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(usn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(7, 7, 7)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(ps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(ut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(select, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(remove, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(us, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Account Type:");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, -1, -1));
+        status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Active", "Inactive" }));
+        jPanel3.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 120, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setText("Age:");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+        jPanel3.add(age, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 147, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setText("Password:");
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jPanel3.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 138, -1));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 41, 510, 410));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ridActionPerformed
@@ -466,66 +275,50 @@ public class createUserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_ridActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        if (rfn.getText().isEmpty() || rln.getText().isEmpty() || usn.getText().isEmpty()
+        || pwd.getText().isEmpty()) {
+    JOptionPane.showMessageDialog(null, "All fields are required!");
+} else if (pwd.getText().length() < 8) {
+    JOptionPane.showMessageDialog(null, "Characters password is 8 above!");
+    pwd.setText("");
+} else {
 
-        if(rfn.getText().isEmpty()|| rln.getText().isEmpty()||adds.getText().isEmpty()||usn.getText().isEmpty()||ps.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "All fields are required!");
-        }else if(ps.getText().length() <8){
-            JOptionPane.showMessageDialog(null, "Password character should be 8 and above");
-            ps.setText("");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist!");
-        }else{
+    dbConnector dbc = new dbConnector();
 
-            dbConnector dbc = new dbConnector();
-            if(dbc.insertData("INSERT INTO user (r_fname, r_lname, r_username, r_password, r_address, r_type, r_status) "
-                + "VALUES ('"+rfn.getText()+"','"+rln.getText()+"','"+adds.getText()+"','"+usn.getText()+"','"+ps.getText()+"','"+ut.getSelectedItem()+"','"+us.getSelectedItem()+"','"+destination+"')"))
-        {
-            try{
-                Files.copy(selectedFile.toPath(),new File(destination).toPath(), StandardCopyOption.REPLACE_EXISTING);
-                JOptionPane.showMessageDialog(null, "Inserted Success!");
-                userDashboard adf = new userDashboard();
-                adf.setVisible(true);
-                this.dispose();
-            }catch(IOException ex){
-                System.out.println("Insert Image Error: "+ex);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Connection Error!");
-        }
-        }
+    if (dbc.insertData("INSERT INTO user(r_fname, r_lname, r_username, r_password, r_address, r_age, r_type,r_pwdstatus, r_status) "
+            + "VALUES('" + rfn.getText() + "', '" + rln.getText() + "', '"
+            + usn.getText() + "', '" + pwd.getText() + "', '" + adds.getText() + "','" + age.getText() + "','" + pwd.getText() + "','" + ut.getSelectedItem().toString() + "', 'PENDING')")) {
+        JOptionPane.showMessageDialog(null, "Register Successfully");
+        JOptionPane.showMessageDialog(null, "Inserted Successfully!");
+        userDashboard udb = new userDashboard();
+        udb.setVisible(true);
+        this.dispose();
+
+    } else {
+        JOptionPane.showMessageDialog(null, "Connection Error!");
+    }
+}
     }//GEN-LAST:event_addActionPerformed
-
-    private void usActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_usActionPerformed
 
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
 
         if(rfn.getText().isEmpty()|| rln.getText().isEmpty()||adds.getText().isEmpty()||usn.getText().isEmpty()||
-            ps.getText().isEmpty()){
+            pwd.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "All fields are required!");
-        }else if(ps.getText().length() <8){
+        }else if(pwd.getText().length() <8){
             JOptionPane.showMessageDialog(null, "Password character should be 8 and above");
-            ps.setText("");
+            pwd.setText("");
         }else if(UpdateCheck()){
             System.out.println("Duplicate Exist!");
         }else{
 
             dbConnector dbc = new dbConnector();
             dbc.updateData("UPDATE user SET r_fname = '"+rfn.getText()+"', r_lname = '"+rln.getText()+"', "
-                + "r_address = '"+adds.getText()+"', r_username = '"+usn.getText()+"', r_password = '"+ps.getText()+"', "
-                + "r_type = '"+ut.getSelectedItem()+"', r_status = '"+us.getSelectedItem()+"' WHERE r_id = '"+rid.getText()+"'");
+                + "r_address = '"+adds.getText()+"', r_username = '"+usn.getText()+"', r_password = '"+pwd.getText()+"', "
+                + "r_type = '"+ut.getSelectedItem()+"', r_status = '"+"' WHERE r_id = '"+rid.getText()+"'");
 
-            if(destination.isEmpty()){
-                File existingFile = new File(oldpath);
-                if(existingFile.exists()){
-                    existingFile.delete();
-                }else{
-                    if(!(oldpath.equals(path))){
-                        imageUpdater(oldpath,path);
-                    }
-                }
-            }
+        }
+        {
             userDashboard adb = new userDashboard();
             adb.setVisible(true);
             this.dispose();
@@ -549,38 +342,6 @@ public class createUserForm extends javax.swing.JFrame {
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_refreshActionPerformed
-
-    private void selectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectActionPerformed
-        JFileChooser fileChooser = new JFileChooser();
-        int returnValue = fileChooser.showOpenDialog(null);
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-            try {
-                selectedFile = fileChooser.getSelectedFile();
-                destination = "src/usersimages/" + selectedFile.getName();
-                path  = selectedFile.getAbsolutePath();
-
-                if(FileExistenceChecker(path) == 1){
-                    JOptionPane.showMessageDialog(null, "File Already Exist, Rename or Choose another!");
-                    destination = "";
-                    path= "";
-                }else{
-                    image.setIcon(ResizeImage(path, null, image));
-                    select.setEnabled(false);
-                    remove.setEnabled(true);
-                }
-            } catch (Exception ex) {
-                System.out.println("File Error!");
-            }
-        }
-    }//GEN-LAST:event_selectActionPerformed
-
-    private void removeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeActionPerformed
-        remove.setEnabled(false);
-        select.setEnabled(true);
-        image.setIcon(null);
-        destination = "";
-        path = "";
-    }//GEN-LAST:event_removeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -620,11 +381,13 @@ public class createUserForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton add;
     public javax.swing.JTextField adds;
+    public javax.swing.JTextField age;
     private javax.swing.JButton cancel;
     private javax.swing.JButton clear;
     public javax.swing.JButton delete;
-    public javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -635,22 +398,18 @@ public class createUserForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JTextField ps;
-    public javax.swing.JPanel r_id;
+    public javax.swing.JTextField pwd;
     private javax.swing.JButton refresh;
-    public javax.swing.JButton remove;
     public javax.swing.JTextField rfn;
     public javax.swing.JTextField rid;
     public javax.swing.JTextField rln;
-    public javax.swing.JButton select;
+    public javax.swing.JComboBox<String> status;
     public javax.swing.JButton update;
-    public javax.swing.JComboBox<String> us;
     public javax.swing.JTextField usn;
     public javax.swing.JComboBox<String> ut;
     // End of variables declaration//GEN-END:variables
 
-    public Icon ResizeImage(String string, Object object, JLabel image) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 
     
 }

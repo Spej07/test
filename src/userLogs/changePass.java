@@ -184,7 +184,7 @@ public class changePass extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,26 +240,33 @@ public class changePass extends javax.swing.JFrame {
         dbConnector dbc = new dbConnector();
         Session sess = Session.getInstance();
         
-        String query = "SELECT * FROM user WHERE r_id = '"+sess.getRid()+"'";
-        ResultSet rs = dbc.getData(query);
-        if(rs.next()){
-            String olddbpass = rs.getString("r_password");
-            String oldhash = passwordHasher.hashPassword(oldpass.getText());
-            
-            if(olddbpass.equals(oldhash)){
-                String npass = passwordHasher.hashPassword(newpass.getText());
-                dbc.updateData("UPDATE user SET r_password = '"+npass+"'");
+     String query = "SELECT * FROM user WHERE r_id = '" + sess.getRid() + "'";
+    ResultSet rs = dbc.getData(query);
+    if (rs.next()) {
+        String olddbpass = rs.getString("r_password");
+        String oldhash = passwordHasher.hashPassword(oldpass.getText());
+        String newhash = passwordHasher.hashPassword(newpass.getText()); //Hash the new password
+
+        if (olddbpass.equals(oldhash)) {
+            //Check if the new password is the same as the old password.
+            if(oldhash.equals(newhash)){
+                JOptionPane.showMessageDialog(null, "New password cannot be the same as the old password!");
+            }
+            else{
+                dbc.updateData("UPDATE user SET r_password = '" + newhash + "' WHERE r_id = '" + sess.getRid() + "'"); //Added where clause
                 JOptionPane.showMessageDialog(null, "Successfully Updated!");
                 login lg = new login();
                 lg.setVisible(true);
                 this.dispose();
-            }else{
-                JOptionPane.showMessageDialog(null, "Old Password is Incorrect!");
             }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Old Password is Incorrect!");
         }
-        }catch(SQLException | NoSuchAlgorithmException ex){
-            System.out.println(""+ex);
-        }
+    }
+} catch (SQLException | NoSuchAlgorithmException ex) {
+    System.out.println("" + ex);
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

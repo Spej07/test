@@ -127,6 +127,7 @@ public class usersdashboard extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -143,9 +144,7 @@ public class usersdashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-       userDashboard aDb = new userDashboard();
-       aDb.setVisible(true);
-       dispose();
+       
     }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
