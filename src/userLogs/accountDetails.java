@@ -36,6 +36,7 @@ public class accountDetails extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         iddisplay = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -84,6 +85,14 @@ public class accountDetails extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, -1));
+
+        jButton3.setText("Back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 514, 90));
 
@@ -148,7 +157,7 @@ public class accountDetails extends javax.swing.JFrame {
         jLabel8.setText("Address:");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 144, -1, -1));
         jPanel3.add(adds, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 167, 226, 30));
-        jPanel3.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 236, 226, 20));
+        jPanel3.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 226, 30));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("UserName:");
@@ -223,6 +232,12 @@ public class accountDetails extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        usersdashboard udb = new usersdashboard();
+        udb.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -271,6 +286,7 @@ public class accountDetails extends javax.swing.JFrame {
     private javax.swing.JLabel iddisplay;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel4;

@@ -146,7 +146,9 @@ public class adminDashboard extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 255));
 
+        jLabel1.setBackground(new java.awt.Color(204, 255, 204));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 153));
         jLabel1.setText("ADMIN DASHBOARD");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -234,9 +236,9 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-       createUserForm cuf = new createUserForm();
-       cuf.setVisible(true);
-       dispose();
+    userDashboard udb = new userDashboard();
+    udb.setVisible(true);
+    dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     /**

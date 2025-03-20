@@ -245,18 +245,18 @@ public class changePass extends javax.swing.JFrame {
     if (rs.next()) {
         String olddbpass = rs.getString("r_password");
         String oldhash = passwordHasher.hashPassword(oldpass.getText());
-        String newhash = passwordHasher.hashPassword(newpass.getText()); //Hash the new password
+        String newhash = passwordHasher.hashPassword(newpass.getText()); 
 
         if (olddbpass.equals(oldhash)) {
-            //Check if the new password is the same as the old password.
+           
             if(oldhash.equals(newhash)){
                 JOptionPane.showMessageDialog(null, "New password cannot be the same as the old password!");
             }
             else{
-                dbc.updateData("UPDATE user SET r_password = '" + newhash + "' WHERE r_id = '" + sess.getRid() + "'"); //Added where clause
+                dbc.updateData("UPDATE user SET r_password = '" + newhash + "' WHERE r_id = '" + sess.getRid() + "'");
                 JOptionPane.showMessageDialog(null, "Successfully Updated!");
                 login lg = new login();
-                lg.setVisible(true);
+                lg.setVisible(true); 
                 this.dispose();
             }
 

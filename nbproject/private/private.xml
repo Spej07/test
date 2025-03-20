@@ -3,19 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/userLogs/accountDetails.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/admin/adminDashboard.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/db/pwd.sql</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/javaapplication1/FILLUPFORM.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/userLogs/changePass.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/dbConnector/dbConnector.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/userLogs/createUserForm.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/config/java/Session.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/doctors/schedule.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/userLogs/usersdashboard.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/userLogs/login.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/admin/Records.java</file>
-            <file>file:/C:/Users/Gwapo%20ko/Desktop/valen/test/src/admin/userDashboard.java</file>
+            <file>file:/C:/Users/SCC-COLLEGE/Desktop/test/src/userLogs/usersdashboard.java</file>
+            <file>file:/C:/Users/SCC-COLLEGE/Desktop/test/src/userLogs/login.java</file>
+            <file>file:/C:/Users/SCC-COLLEGE/Desktop/test/src/javaapplication1/FILLUPFORM.java</file>
+            <file>file:/C:/Users/SCC-COLLEGE/Desktop/test/src/userLogs/createUserForm.java</file>
+            <file>file:/C:/Users/SCC-COLLEGE/Desktop/test/src/userLogs/accountDetails.java</file>
+            <file>file:/C:/Users/SCC-COLLEGE/Desktop/test/src/admin/adminDashboard.java</file>
+            <file>file:/C:/Users/SCC-COLLEGE/Desktop/test/src/userLogs/changePass.java</file>
+            <file>file:/C:/Users/SCC-COLLEGE/Desktop/test/src/admin/userDashboard.java</file>
         </group>
     </open-files>
 </project-private>

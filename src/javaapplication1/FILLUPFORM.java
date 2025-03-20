@@ -82,11 +82,11 @@ public class FILLUPFORM extends javax.swing.JFrame {
         fname = new javax.swing.JTextField();
         lname = new javax.swing.JTextField();
         usname = new javax.swing.JTextField();
-        password = new javax.swing.JTextField();
         adds = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         PWD = new javax.swing.JTextField();
         type = new javax.swing.JComboBox<>();
+        password = new javax.swing.JPasswordField();
 
         jLabel4.setText("AGE:");
 
@@ -180,13 +180,6 @@ public class FILLUPFORM extends javax.swing.JFrame {
         });
         jPanel41.add(usname, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 170, -1));
 
-        password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
-            }
-        });
-        jPanel41.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 170, -1));
-
         adds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addsActionPerformed(evt);
@@ -201,6 +194,7 @@ public class FILLUPFORM extends javax.swing.JFrame {
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Resident" }));
         jPanel41.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 130, -1));
+        jPanel41.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 170, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,10 +228,6 @@ public class FILLUPFORM extends javax.swing.JFrame {
     private void addsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addsActionPerformed
-
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
 
     private void usnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usnameActionPerformed
         // TODO add your handling code here:
@@ -344,7 +334,7 @@ public class FILLUPFORM extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField lname;
     private javax.swing.JLabel name;
-    private javax.swing.JTextField password;
+    private javax.swing.JPasswordField password;
     private javax.swing.JLabel phone;
     private javax.swing.JLabel stats;
     private javax.swing.JComboBox<String> type;
