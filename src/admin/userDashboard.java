@@ -310,13 +310,13 @@ public final class userDashboard extends javax.swing.JFrame {
         try{
             dbConnector dbc = new dbConnector();
             TableModel tbl = usersTable.getModel();
-            ResultSet rs = dbc.getData("SELECT * FROM tbl_users WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
+            ResultSet rs = dbc.getData("SELECT * FROM user WHERE r_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
             if(rs.next()){
                 createUserForm crf = new createUserForm();
                 crf.rid.setText(""+rs.getInt("r_id"));
                 crf.rfn.setText(""+rs.getString("r_fname"));
                 crf.rln.setText(""+rs.getString("r_lname"));
-                crf.adds.setText(""+rs.getString("r_addreess"));
+                crf.adds.setText(""+rs.getString("r_address"));
                 crf.usn.setText(""+rs.getString("r_username"));
                 crf.pwd.setText(""+rs.getString("r_password"));  
                 crf.ut.setSelectedItem(""+rs.getString("r_type"));        
