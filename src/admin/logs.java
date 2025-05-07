@@ -46,7 +46,7 @@ public class logs extends javax.swing.JFrame {
 
         try {
             dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT u_id, u_lname, u_fname, u_username, u_type, u_phone, u_status FROM tbl_accounts");
+            ResultSet rs = dbc.getData("SELECT r_id, r_lname, r_fname, r_username, r_type, r_status FROM user");
 
             while (rs.next()) {
                 // Store each column value in a separate variable
@@ -55,7 +55,7 @@ public class logs extends javax.swing.JFrame {
                 String ln = rs.getString("u_lname");
                 String uname = rs.getString("u_username");
                 //String npass = rs.getString("u_password");  // Note: This might not be used, but it can be checked if necessary
-                String p = rs.getString("u_phone");
+           
                 String at = rs.getString("u_type");
                 String status = rs.getString("u_status");
 
@@ -69,7 +69,7 @@ public class logs extends javax.swing.JFrame {
                         ln, 
                         uname, 
                         at, 
-                        p,
+                     
                         status 
                     });
                     /*System.out.println("\n==========");
@@ -86,7 +86,7 @@ public class logs extends javax.swing.JFrame {
             // After processing all rows, update the table on the Swing event dispatch thread
             SwingUtilities.invokeLater(() -> {
                 DefaultTableModel model = new DefaultTableModel(
-                        new String[]{"ID", "First Name", "Last Name", "Username", "Account Type", "Phone", "Status"}, 0
+                        new String[]{"ID", "First Name", "Last Name", "Username", "Account Type", "Status"}, 0
                 );
                 for (Object[] row : rowData) {
                     model.addRow(row);
@@ -109,7 +109,7 @@ public class logs extends javax.swing.JFrame {
         try
         {
             dbConnector dbc = new dbConnector();
-            ResultSet rs = dbc.getData("SELECT * FROM tbl_Logs");
+            ResultSet rs = dbc.getData("SELECT * FROM tbl_logs");
             account_table.setModel(DbUtils.resultSetToTableModel(rs));
             rs.close();
         }catch(SQLException ex)
@@ -126,7 +126,7 @@ public class logs extends javax.swing.JFrame {
 
     String sql = "SELECT * FROM tbl_accounts";
 
-    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/theater_db", "root", "");
+    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pwd", "root", "");
          PreparedStatement pst = con.prepareStatement(sql);
          ResultSet rs = pst.executeQuery()) 
     {
@@ -134,18 +134,17 @@ public class logs extends javax.swing.JFrame {
         while (rs.next()) 
         {
             // Check if the user's status is not "Deleted"
-            String userStatus = rs.getString("u_status");
+            String userStatus = rs.getString("r_status");
             if (!"Deleted".equals(userStatus)) 
             {
                 model.addRow(new Object[]
                 {
-                    rs.getInt("u_id"),
-                    rs.getString("u_fname"),
-                    rs.getString("u_lname"),
-                    rs.getString("u_username"),
-                    rs.getString("u_type"),
-                    rs.getString("u_phone"),
-                    rs.getString("u_status")
+                    rs.getInt("r_id"),
+                    rs.getString("r_fname"),
+                    rs.getString("r_lname"),
+                    rs.getString("r_username"),
+                    rs.getString("r_type"),
+                    rs.getString("r_status")
                 });
             }
         }
@@ -189,29 +188,28 @@ public class logs extends javax.swing.JFrame {
 
                 if (rs.next()) 
                 {
-                    String fn = rs.getString("u_fname");
-                    String ln = rs.getString("u_lname");
-                    uname = rs.getString("u_username");
-                    String npass = rs.getString("u_password");
-                    String p = rs.getString("u_phone");
-                    String at = rs.getString("u_type");
+                    String fn = rs.getString("r_fname");
+                    String ln = rs.getString("r_lname");
+                    uname = rs.getString("r_username");
+                    String npass = rs.getString("r_password");
+                    String at = rs.getString("r_type");
                     String s = "Deleted";
-                    String u = rs.getString("u_id");
+                    String u = rs.getString("r_id");
 
-                    dbc.updateData("UPDATE tbl_accounts SET u_fname = '" + fn + "', u_lname = '" + ln + "', u_username = '" + uname + "',"
-                            + " u_password = '" + npass + "', u_phone = '" + p + "', u_type = '" + at + "', u_status = '" + s + "' WHERE u_id = '" + userId + "'");
+                    dbc.updateData("UPDATE user SET r_fname = '" + fn + "', r_lname = '" + ln + "', r_username = '" + uname + "',"
+                            + " r_password = '" + npass + "', r_type = '" + at + "', r_status = '" + s + "' WHERE r_id = '" + userId + "'");
                     
                     try 
                     {
-                        String query = "SELECT * FROM tbl_accounts WHERE u_id = '" + sess.getrid() + "'";
+                        String query = "SELECT * FROM user WHERE r_id = '" + sess.getrid() + "'";
                         PreparedStatement pstmt2 = connector.getConnection().prepareStatement(query);
 
                         ResultSet rs2 = pstmt2.executeQuery();
 
                         if (rs2.next()) 
                         {
-                            userId = rs2.getInt("u_id");   
-                            uname2 = rs2.getString("u_username");
+                            userId = rs2.getInt("r_id");   
+                            uname2 = rs2.getString("r_username");
                             logEvent(userId, uname2, "Admin Deleted Account: " + uname);
                             loadUsersData();
                         }
@@ -236,7 +234,7 @@ public class logs extends javax.swing.JFrame {
         Timestamp time = new Timestamp(new Date().getTime());
 
         try {
-            String sql = "INSERT INTO tbl_logs (u_id, u_username, action_time, log_action) "
+            String sql = "INSERT INTO tbl_logs (r_id, r_username, action_time, log_action) "
                     + "VALUES ('" + userId + "', '" + username + "', '" + time + "', '" + action + "')";
             pstmt = con.prepareStatement(sql);
 
