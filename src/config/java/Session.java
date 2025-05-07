@@ -91,6 +91,10 @@ public class Session {
         this.r_status = status;
     }
 
+    public String getrid() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
     

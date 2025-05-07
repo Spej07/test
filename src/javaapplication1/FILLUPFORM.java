@@ -87,6 +87,10 @@ public class FILLUPFORM extends javax.swing.JFrame {
         PWD = new javax.swing.JTextField();
         type = new javax.swing.JComboBox<>();
         password = new javax.swing.JPasswordField();
+        dob1 = new javax.swing.JLabel();
+        SecQues = new javax.swing.JComboBox<>();
+        ans = new javax.swing.JTextField();
+        dob2 = new javax.swing.JLabel();
 
         jLabel4.setText("AGE:");
 
@@ -126,7 +130,7 @@ public class FILLUPFORM extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel41.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
+        jPanel41.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
 
         name.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         name.setText("FIRSTNAME:");
@@ -141,23 +145,23 @@ public class FILLUPFORM extends javax.swing.JFrame {
         jPanel41.add(usern, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 84, -1, -1));
 
         dob.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        dob.setText("PASSWORD:");
-        jPanel41.add(dob, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        dob.setText("ANSWER:");
+        jPanel41.add(dob, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         phone.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         phone.setText("ADDRESS:");
-        jPanel41.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jPanel41.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         stats.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         stats.setText("AGE:");
-        jPanel41.add(stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel41.add(stats, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         agee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ageeActionPerformed(evt);
             }
         });
-        jPanel41.add(agee, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 170, -1));
+        jPanel41.add(agee, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 170, -1));
 
         fname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,16 +189,28 @@ public class FILLUPFORM extends javax.swing.JFrame {
                 addsActionPerformed(evt);
             }
         });
-        jPanel41.add(adds, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 170, -1));
+        jPanel41.add(adds, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("PWD STATUS:");
-        jPanel41.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
-        jPanel41.add(PWD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 180, -1));
+        jPanel41.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jPanel41.add(PWD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 180, -1));
 
         type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Resident" }));
-        jPanel41.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, 130, -1));
+        jPanel41.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 100, -1));
         jPanel41.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 170, -1));
+
+        dob1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        dob1.setText("PASSWORD:");
+        jPanel41.add(dob1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        SecQues.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "What city were you born?", "What is your father middle name?", "What is the name of your primary school?", "Who was your childhood hero?", " " }));
+        jPanel41.add(SecQues, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 170, -1));
+        jPanel41.add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 170, -1));
+
+        dob2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        dob2.setText("QUESTION:");
+        jPanel41.add(dob2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -246,37 +262,47 @@ public class FILLUPFORM extends javax.swing.JFrame {
     }//GEN-LAST:event_ageeActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           if(fname.getText().isEmpty()|| lname.getText().isEmpty()||usname.getText().isEmpty()||password.getText().isEmpty()||
-                agee.getText().isEmpty()|| adds.getText().isEmpty()|| PWD.getText().isEmpty()){
-         JOptionPane.showMessageDialog(null, "All fields are required!");   
-        }else if(password.getText().length() <8){
-        JOptionPane.showMessageDialog(null, "Password character should be 8 and above");
-        password.setText("");
-        }else if(duplicateCheck()){
-            System.out.println("Duplicate Exist!");
-        }else{
-        dbConnector dbc = new dbConnector();
-        try{
+      if(fname.getText().isEmpty() || lname.getText().isEmpty() || usname.getText().isEmpty() || 
+   password.getText().isEmpty() || agee.getText().isEmpty() || adds.getText().isEmpty() || 
+   PWD.getText().isEmpty() || SecQues.getSelectedItem().toString().isEmpty() || 
+   ans.getText().isEmpty()) {
+   
+    JOptionPane.showMessageDialog(null, "All fields are required!");   
+
+} else if(password.getText().length() < 8) {
+    
+    JOptionPane.showMessageDialog(null, "Password character should be 8 and above");
+    password.setText("");
+
+} else if(duplicateCheck()) {
+
+    System.out.println("Duplicate Exist!");
+
+} else {
+    dbConnector dbc = new dbConnector();
+    try {
         String pass = passwordHasher.hashPassword(password.getText());
         String imagePath = "uploads/" + usname.getText() + ".jpg"; 
         
-        if(dbc.insertData("INSERT INTO user (r_fname, r_lname, r_username, r_password, r_age,r_address, r_pwdstatus , r_type,r_status) "
-                + "VALUES('" + fname.getText() + "', '" + lname.getText() + "', '"
-                + usname.getText() + "', '" +pass+ "', '" + agee.getText() + "','"
-                + adds.getText() + "','" + PWD.getText() + "','" + type.getSelectedItem() + "', 'PENDING')")) {
-        
-        JOptionPane.showMessageDialog(null, "Inserted Success!");
+        String sql = "INSERT INTO user (r_fname, r_lname, r_username, r_password, r_age, r_address, r_pwdstatus, r_type, r_status, security_question, security_answer) "
+                   + "VALUES('" + fname.getText() + "', '" + lname.getText() + "', '"
+                   + usname.getText() + "', '" + pass + "', '" + agee.getText() + "','"
+                   + adds.getText() + "','" + PWD.getText() + "','" + type.getSelectedItem() + "', 'PENDING', '"
+                   + SecQues.getSelectedItem().toString() + "', '" + ans.getText() + "')";
+
+        if(dbc.insertData(sql)) {
+            JOptionPane.showMessageDialog(null, "Inserted Success!");
             login lfr = new login();
             lfr.setVisible(true);
             this.dispose();
-        }else{
-        JOptionPane.showMessageDialog(null, "Connection Error!");      
+        } else {
+            JOptionPane.showMessageDialog(null, "Connection Error!");      
         }     
-        }catch(NoSuchAlgorithmException ex){
-            System.out.println(""+ex);
-        }
-        }
-    
+    } catch(NoSuchAlgorithmException ex) {
+        System.out.println("" + ex);
+    }
+}
+
     }//GEN-LAST:event_jButton2ActionPerformed
          
 
@@ -317,10 +343,14 @@ public class FILLUPFORM extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField PWD;
+    private javax.swing.JComboBox<String> SecQues;
     private javax.swing.JTextField adds;
     private javax.swing.JLabel age;
     private javax.swing.JTextField agee;
+    private javax.swing.JTextField ans;
     private javax.swing.JLabel dob;
+    private javax.swing.JLabel dob1;
+    private javax.swing.JLabel dob2;
     private javax.swing.JTextField fname;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
